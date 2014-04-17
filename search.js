@@ -1,11 +1,9 @@
 module.exports = {
-  getArt: function (artist, track) {
+  getArt: function () {
   /**
    * Example that executes a Spotify "Search" and parses the XML results using
    * node-xml2js.
    */
-
-  readPlaying();
 
   var xml2js = require('xml2js');
   var Spotify = require('spotify-web');
@@ -48,7 +46,7 @@ module.exports = {
           // open(spotify.sourceUrls.small + album_uri);
 
           download(spotify.sourceUrls.small + album_uri, 'Cover.png', function(){
-            console.log('done');
+            console.log('Art downloaded successfully.');
           });
         }
         catch (ignore) {
@@ -99,7 +97,6 @@ function getInfo() {
       'secret' : process.env.LASTFM_SECRET
   });
 
-  // var user = "fathomx9";
   var artist = "";
   var track = "";
   lfm.user.getRecentTracks({
