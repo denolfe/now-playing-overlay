@@ -62,10 +62,10 @@ function getArt(artist, track) {
         try {
           // Check Album for Art
           album_uri = data.result.albums[0].album[0].cover[0];
-          console.log(spotify.sourceUrls.normal + album_uri);
-          // open(spotify.sourceUrls.normal + album_uri);
+          console.log(spotify.sourceUrls.small + album_uri);
+          // open(spotify.sourceUrls.small + album_uri);
 
-          download(spotify.sourceUrls.normal + album_uri, 'Cover.jpg', function(){
+          download(spotify.sourceUrls.small + album_uri, 'Cover.png', function(){
             console.log('done');
           });
         }
@@ -74,10 +74,10 @@ function getArt(artist, track) {
           try {
             // Check Song for Art
             album_uri = data.result.tracks[0].track[0].cover[0];
-            console.log(spotify.sourceUrls.normal + album_uri);
-            // open(spotify.sourceUrls.normal + album_uri);
+            console.log(spotify.sourceUrls.small + album_uri);
+            // open(spotify.sourceUrls.small + album_uri);
 
-            download(spotify.sourceUrls.normal + album_uri, 'Cover.jpg', function(){
+            download(spotify.sourceUrls.small + album_uri, 'Cover.png', function(){
               console.log('done');
             });
           }
