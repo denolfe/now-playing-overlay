@@ -77,7 +77,7 @@ function getArt(artist, track) {
             console.log("https://d3rt1990lpmkn.cloudfront.net/300/" + album_uri);
             // open("https://d3rt1990lpmkn.cloudfront.net/300/" + album_uri);
 
-            download("https://d3rt1990lpmkn.cloudfront.net/300/" + album_uri, 'cover.jpg', function(){
+            download("https://d3rt1990lpmkn.cloudfront.net/300/" + album_uri, 'Cover.jpg', function(){
               console.log('done');
             });
           }
