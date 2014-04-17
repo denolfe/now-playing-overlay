@@ -9,8 +9,8 @@ winspawn('helper.ahk');
 
 watch('./NowPlaying.txt', function(file) {
   console.log('\nSong Change.');
-
-  search.getInfo();
+  // socket io???
+  search.getArt();
 
 });
 

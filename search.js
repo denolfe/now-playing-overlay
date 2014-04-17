@@ -1,48 +1,30 @@
-
 module.exports = {
-  getInfo: function () {
-    var LastfmAPI = require ('lastfmAPI');
-
-    var lfm = new LastfmAPI({
-        'api_key' : process.env.LASTFM_API_KEY,
-        'secret' : process.env.LASTFM_SECRET
-    });
-
-    // var user = "fathomx9";
-    var artist = "";
-    var track = "";
-    lfm.user.getRecentTracks({
-      'user': process.env.LASTFM_USERNAME
-    }, function (err, track) {
-        if (err) { 
-          console.log(err);
-          throw err; }
-        // console.log(track.track[0]);
-        artist = track.track[0].artist["#text"];
-        track = track.track[0].name;
-        // console.log(artist);
-        // console.log(track);
-        // console.log(track.track[0].image[3]["#text"])
-        getArt(artist, track);
-    });
-
-  }
-}
-
-
-
-
-function getArt(artist, track) {
+  getArt: function (artist, track) {
   /**
    * Example that executes a Spotify "Search" and parses the XML results using
    * node-xml2js.
    */
 
+  readPlaying();
+
   var xml2js = require('xml2js');
   var Spotify = require('spotify-web');
   var superagent = require('superagent');
-  var query = artist + " - " + track;
-  console.log(query);
+  var query = "";
+
+  var path = require('path');
+
+  var filePath = path.join(__dirname + '/NowPlaying.txt');
+
+  fs.readFile(filePath, {encoding: 'utf-8'}, function(err,data){
+      if (!err) {
+        query = data.replace(/^\s+|\s+$/g, '');
+        console.log(query);
+      } else {
+          console.log(err);
+      }
+
+  });
 
   // Spotify credentials...
   var username = process.env.SPOTIFY_USERNAME;
@@ -92,9 +74,6 @@ function getArt(artist, track) {
 
   });
 }
-
-function checkAlbum() {
-
 }
 
 
@@ -112,3 +91,30 @@ var download = function(uri, filename, callback){
 };
 
 
+function getInfo() {
+  var LastfmAPI = require ('lastfmAPI');
+
+  var lfm = new LastfmAPI({
+      'api_key' : process.env.LASTFM_API_KEY,
+      'secret' : process.env.LASTFM_SECRET
+  });
+
+  // var user = "fathomx9";
+  var artist = "";
+  var track = "";
+  lfm.user.getRecentTracks({
+    'user': process.env.LASTFM_USERNAME
+  }, function (err, track) {
+      if (err) { 
+        console.log(err);
+        throw err; }
+      // console.log(track.track[0]);
+      artist = track.track[0].artist["#text"];
+      track = track.track[0].name;
+      // console.log(artist);
+      // console.log(track);
+      // console.log(track.track[0].image[3]["#text"])
+      getArt(artist, track);
+  });
+
+}
