@@ -62,10 +62,10 @@ function getArt(artist, track) {
         try {
           // Check Album for Art
           album_uri = data.result.albums[0].album[0].cover[0];
-          console.log("https://d3rt1990lpmkn.cloudfront.net/300/" + album_uri);
-          // open("https://d3rt1990lpmkn.cloudfront.net/300/" + album_uri);
+          console.log(spotify.sourceUrls.normal + album_uri);
+          // open(spotify.sourceUrls.normal + album_uri);
 
-          download("https://d3rt1990lpmkn.cloudfront.net/300/" + album_uri, 'Cover.jpg', function(){
+          download(spotify.sourceUrls.normal + album_uri, 'Cover.jpg', function(){
             console.log('done');
           });
         }
@@ -74,10 +74,10 @@ function getArt(artist, track) {
           try {
             // Check Song for Art
             album_uri = data.result.tracks[0].track[0].cover[0];
-            console.log("https://d3rt1990lpmkn.cloudfront.net/300/" + album_uri);
-            // open("https://d3rt1990lpmkn.cloudfront.net/300/" + album_uri);
+            console.log(spotify.sourceUrls.normal + album_uri);
+            // open(spotify.sourceUrls.normal + album_uri);
 
-            download("https://d3rt1990lpmkn.cloudfront.net/300/" + album_uri, 'Cover.jpg', function(){
+            download(spotify.sourceUrls.normal + album_uri, 'Cover.jpg', function(){
               console.log('done');
             });
           }
