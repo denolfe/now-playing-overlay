@@ -2,12 +2,14 @@ var watch = require('node-watch');
 
 var winspawn = require('win-spawn');
 
+var search = require('./search.js');
+
 console.log('Starting Helper script...');
 winspawn('helper.ahk');
 
 watch('./NowPlaying.txt', function(file) {
-  console.log('Song Change.');
-  var search = require('./search.js');
+  console.log('\nSong Change.');
+
   search.getInfo();
 
 });
@@ -19,7 +21,7 @@ var express = require('express')
 
 var port = 1337;
 server.listen(port);
-console.log('Server started at localhost:' + port)
+console.log('Server started at localhost:' + port + '...');
 
 app.use(express.static(__dirname+'/public'));
 app.use(bodyParser({strict: false}));
