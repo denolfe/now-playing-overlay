@@ -13,6 +13,9 @@
     "open": "0.0.5",
     "request": "~2.34.0",
     "win-spawn": "~2.0.0",
-    "node-watch": "~0.3.4"
+    "node-watch": "~0.3.4",
+    "express": "~4.0.0",
+    "body-parser": "*",
+    "ejs": "~1.0.0"
   }
 }
