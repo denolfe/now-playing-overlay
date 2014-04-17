@@ -1,0 +1,19 @@
+{
+  "name": "spotify-node",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "spotify-web": "~1.1.1",
+    "open": "0.0.5",
+    "request": "~2.34.0",
+    "win-spawn": "~2.0.0",
+    "node-watch": "~0.3.4",
+    "config": "~0.4.35"
+  }
+}
