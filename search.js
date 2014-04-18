@@ -1,5 +1,4 @@
-module.exports = {
-  getArt: function () {
+exports.getArt = function (query) {
   /**
    * Example that executes a Spotify "Search" and parses the XML results using
    * node-xml2js.
@@ -8,21 +7,6 @@ module.exports = {
   var xml2js = require('xml2js');
   var Spotify = require('spotify-web');
   var superagent = require('superagent');
-  var query = "";
-
-  var path = require('path');
-
-  var filePath = path.join(__dirname + '/NowPlaying.txt');
-
-  fs.readFile(filePath, {encoding: 'utf-8'}, function(err,data){
-      if (!err) {
-        query = data.replace(/^\s+|\s+$/g, '');
-        console.log(query);
-      } else {
-          console.log(err);
-      }
-
-  });
 
   // Spotify credentials...
   var username = process.env.SPOTIFY_USERNAME;
@@ -72,7 +56,24 @@ module.exports = {
 
   });
 }
-}
+
+exports.getNowPlaying = function () {
+    
+    var path = require('path');
+    var filePath = path.join(__dirname + '/NowPlaying.txt');
+
+    var nowPlaying = fs.readFileSync(filePath,'utf8').replace(/^\s+|\s+$/g, '');
+    if (nowPlaying == '')
+    {
+      console.log('Music is paused.');
+    }
+    else
+    {
+      console.log('Now Playing: ' + nowPlaying);  
+      this.getArt(nowPlaying);  
+    }
+    
+  }
 
 
 // http://stackoverflow.com/questions/12828187/saving-an-image-file-with-node-js-request-library-causes-exception

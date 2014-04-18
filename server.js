@@ -8,10 +8,8 @@ console.log('Starting Helper script...');
 winspawn('helper.ahk');
 
 watch('./NowPlaying.txt', function(file) {
-  console.log('\nSong Change.');
-  // socket io???
-  search.getArt();
-
+  console.log('\nSong State Change.');
+  search.getNowPlaying();
 });
 
 var express = require('express')
