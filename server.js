@@ -17,6 +17,7 @@ watch('./NowPlaying.txt', function(file) {
 var express = require('express')
   , app = express()
   , server = require('http').createServer(app)
+  , io = require('socket.io').listen(server)
   , bodyParser = require('body-parser');
 
 var port = 1337;
