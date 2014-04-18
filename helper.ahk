@@ -6,7 +6,7 @@ SendMode Input
 SetWorkingDir %A_ScriptDir%
 SetTitleMatchMode, 2
 
-file := "NowPlaying.txt"
+file := "public/NowPlaying.txt"
 was_playing := ""
 
 SetTimer, CheckSong, 1000
@@ -20,7 +20,7 @@ CheckSong:
 	{
 		;Traytip, Song Changed, % playing, 1
 		was_playing := playing
-		playing_formatted := "    " . playing
+		playing_formatted := playing
 		FileDelete, % file
 		FileAppend, % playing_formatted, % file, UTF-8
 	}
