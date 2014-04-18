@@ -29,7 +29,7 @@ exports.getArt = function (query) {
           console.log(spotify.sourceUrls.small + album_uri);
           // open(spotify.sourceUrls.small + album_uri);
 
-          download(spotify.sourceUrls.small + album_uri, 'Cover.png', function(){
+          download(spotify.sourceUrls.small + album_uri, 'public/img/Cover.png', function(){
             console.log('Art downloaded successfully.');
           });
         }
@@ -41,8 +41,8 @@ exports.getArt = function (query) {
             console.log(spotify.sourceUrls.small + album_uri);
             // open(spotify.sourceUrls.small + album_uri);
 
-            download(spotify.sourceUrls.small + album_uri, 'Cover.png', function(){
-              console.log('done');
+            download(spotify.sourceUrls.small + album_uri, 'public/img/Cover.png', function(){
+              console.log('Art downloaded successfully.');
             });
           }
           catch (ignore2) {
@@ -57,22 +57,38 @@ exports.getArt = function (query) {
   });
 }
 
+var lastCommand;
 exports.getNowPlaying = function () {
-    
+    var out = {};
     var path = require('path');
-    var filePath = path.join(__dirname + '/NowPlaying.txt');
+    var filePath = path.join(__dirname + '/public/NowPlaying.txt');
 
     var nowPlaying = fs.readFileSync(filePath,'utf8').replace(/^\s+|\s+$/g, '');
+    console.log('Last Command: ' + lastCommand);
     if (nowPlaying == '')
     {
       console.log('Music is paused.');
+      out.command = 'pauseSong';
+      out.nowPlaying = '';
     }
     else
     {
-      console.log('Now Playing: ' + nowPlaying);  
+      console.log('Now Playing: ' + nowPlaying); 
+      if (lastCommand == 'pauseSong')
+      {
+        out.command = 'startSong'
+        console.log('startSong.................');
+      }
+      else
+      {
+        out.command = 'nextSong';
+        console.log('nextSong.................');
+      }
+      out.nowPlaying = nowPlaying;  
       this.getArt(nowPlaying);  
     }
-    
+    lastCommand = out.command;
+    return out;
   }
 
 

@@ -32,7 +32,7 @@ body {
 }
 
 .marquee {
-    width: 150px;
+    width: 300px;
     overflow: hidden;
     /*border:1px solid #ccc;*/
     /*background: black;*/
@@ -59,7 +59,7 @@ body {
   left: -100px;
   width: 94px;
   height: 94px;
-  background: url('../../Cover.png');
+  background: url('/img/Cover.png');
   background-size: contain;
   background-repeat: no-repeat;
   vertical-align: middle;
@@ -69,10 +69,10 @@ body {
   position: absolute;
   /*float: left;*/
   bottom: -3px;
-  left: 8px;
+  left: -100px;
   width: 94px;
   height: 94px;
-  background: url('../../img/album-overlay.png');
+  background: url('/img/album-overlay.png');
   background-size: contain;
   background-repeat: no-repeat;
   vertical-align: middle;
@@ -82,50 +82,49 @@ body {
 #song-info
 {
   font-size: 28px;
-  color: black;
+  color: white;
+  text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black;
+  /*-webkit-mask-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 95%);*/
+  -webkit-mask-image: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,1)), color-stop(90%,rgba(0,0,0,1)), color-stop(100%,rgba(0,0,0,0)));
   position: absolute;
   left: 95px;
   bottom: -15px;
-  width: 500px;
+  width: 350px;
   height: 50px;
 /*  overflow-x: hidden;
   overflow-y: visible;*/
 }
 
 .spin {
-    /*margin: 20px;*/
-/*    width: 100px;
-    height: 100px;
-    background: #f00;
-*/    -webkit-animation-name: spin;
-    -webkit-animation-duration: 4000ms;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    -moz-animation-name: spin;
-    -moz-animation-duration: 4000ms;
-    -moz-animation-iteration-count: infinite;
-    -moz-animation-timing-function: linear;
-    -ms-animation-name: spin;
-    -ms-animation-duration: 4000ms;
-    -ms-animation-iteration-count: infinite;
-    -ms-animation-timing-function: linear;
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 4000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 4000ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 4000ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
 
-    animation-name: spin;
-    animation-duration: 4000ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+  animation-name: spin;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 @-ms-keyframes spin {
-    from { -ms-transform: rotate(0deg); }
-    to { -ms-transform: rotate(360deg); }
+  from { -ms-transform: rotate(0deg); }
+  to { -ms-transform: rotate(360deg); }
 }
 @-moz-keyframes spin {
-    from { -moz-transform: rotate(0deg); }
-    to { -moz-transform: rotate(360deg); }
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
 }
 @-webkit-keyframes spin {
-    from { -webkit-transform: rotate(0deg); }
-    to { -webkit-transform: rotate(360deg); }
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
 }
 @keyframes spin {
     from {
@@ -195,7 +194,7 @@ body {
   height: 100px;
   left: -100px;
   bottom: -7px;
-  background: url('../../img/disc.png');
+  background: url('/img/disc.png');
   background-size: contain;
   background-repeat: no-repeat;
   vertical-align: middle;
