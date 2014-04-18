@@ -1,0 +1,100 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script src='js/jquery-1.11.0.min.js'/></script>
+<script src='js/jquery.transit.min.js'/></script>
+<script src='js/jquery.marquee.min.js'/></script>
+
+<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:700' rel='stylesheet' type='text/css'> -->
+<!-- <link rel="stylesheet" type="text/css" href="css/animate.css"> -->
+<!-- <script src="/socket.io/socket.io.js"></script> -->
+<!-- <script src='//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'/></script> -->
+<!-- <script src="../app.js"></script>   -->
+
+
+  <script>
+  $(document).ready(function() {
+
+    startSong();
+      
+      // $('#disc').addClass('spin');
+      // setTimeout(function () {
+      //   $('#disc').transition({ x: 600, rotate: 1080}, 1000).transition({ x: 150, rotate: 0}, 1500)
+      // }, 1000);
+        $('#disc').click(function() {
+          endSong();
+        });
+
+        $('#song-info').click(function() {
+          startSong();
+        });
+
+        function endSong () {
+              $('#album-overlay').transition({opacity: 0});
+              $('#album-art').transition({'left': '-100px'}, 1000,'cubic-bezier(0,0.9,0.3,1)').removeClass('shadow');
+              $('#disc').removeClass('spin').transition({ x: 600, rotate: 1080}, 1000).transition({ x: -150, rotate: 0}, 2000);
+              $('#song-info').css({opacity: 0});
+
+              setTimeout(function () {
+                reset();
+                startSong();
+              }, 3000);
+
+        }
+
+        function startSong () {
+                $("#disc").css({opacity: 0})
+                .transition({ x: 150, opacity: 100, rotate: 180}, 2500,
+          'cubic-bezier(0,0.9,0.3,1)');
+                $('#album-overlay').css({opacity: 0});
+                $("#song-info").css({opacity: 0});
+
+                setTimeout(function () {
+                  $('#album-art').transition({'left': '8px'}, 1000,'cubic-bezier(0,0.9,0.3,1)');
+                  $("#song-info").transition({ opacity: 100})}, 2000);
+
+                
+                // $("#song-info").transition({ opacity: 100})
+                setTimeout(function () {
+                  $("#song-info").transition({ opacity: 100})
+                  // $("#disc").css({'left': '50px', '-webkit-animation-name': 'spin', '-webkit-animation-duration': '4000ms', '-webkit-animation-iteration-count': 'infinite', '-webkit-animation-timing-function': 'linear'});
+                  $('#album-overlay').transition({opacity: 100}, 3000)
+                  $("#disc").css({'left': '50px'}).addClass('spin')
+                  $('#album-art').addClass('shadow');
+                }, 3000);
+                // setTimeout(function () {
+                //   $('.marquee').marquee({
+                //           duration: 10000
+                //       });
+                // }, 6000);
+
+        }
+        function reset () {
+          // alert("I am an alert box!");
+          $('#song-info').css({opacity: 0});
+          $('#disc').css({'left': '-100px', opacity: 0});
+          $('#album-art').css({'left': '-100px'});
+        }
+
+
+});
+
+
+
+  </script>
+
+
+</head>
+<body>
+<div id="container">
+</div>
+<div id="music">
+  <div id="song-info" class='marquee'><p>Coyote Kisses - Galactive Love Song</p></div>
+  <div id="album-art"></div>
+  <div id="album-overlay"></div>
+  <div id="disc"></div>
+</div>
+
+
+</body>
+</html>
