@@ -1,7 +1,7 @@
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Futura';
   font-weight: bold;
-  src: url("/fonts/OpenSans-Bold.ttf") format("opentype");
+  src: url("/fonts/FuturaLT.ttf") format("opentype");
 }
 
 body {
@@ -11,7 +11,7 @@ body {
   /*background:url('../img/hud_test_image.png');*/
   background-size: 1920px 1080px;
   background-repeat: no-repeat;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Futura', sans-serif;
 }
 
 #container {
