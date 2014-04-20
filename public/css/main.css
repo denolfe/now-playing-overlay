@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: bold;
+  src: url("/fonts/OpenSans-Bold.ttf") format("opentype");
+}
+
 body {
   padding: 0px;
   margin: 0px;
