@@ -46,7 +46,13 @@ exports.getArt = function (query) {
             });
           }
           catch (ignore2) {
-            console.log("Can't find any art...");
+            console.log("Can't find any art... Using unknown cover art.");
+            try {
+              fs.writeFileSync('public/img/Cover.png', fs.readFileSync('public/img/no-cover.png'));
+            }
+            catch (err) {
+              console.log(err);
+            }
           }
           
         }
@@ -77,12 +83,10 @@ exports.getNowPlaying = function () {
       if (lastCommand == 'pauseSong')
       {
         out.command = 'startSong'
-        console.log('startSong.................');
       }
       else
       {
         out.command = 'nextSong';
-        console.log('nextSong.................');
       }
       out.nowPlaying = nowPlaying;  
       this.getArt(nowPlaying);  
