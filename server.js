@@ -44,14 +44,11 @@ else
 
 function stateChange () {
   console.log('\nSong State Change.');
-  try {
-  	var np = search.getNowPlaying();
-  	socket.emit('message', {'command': np.command, 'info': np});	
-  }
-  catch (err)
-  {
-  	console.log(err.message);
-  }
+  var np = search.getNowPlaying();
+  if (typeof socket === 'undefined')
+    console.log('No page currently listening...');
+  else
+    socket.emit('message', {'command': np.command, 'info': np});  
 }
 
 watch('./public/NowPlaying.txt', stateChange);
