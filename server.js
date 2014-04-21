@@ -31,9 +31,15 @@ io.sockets.on('connection', function (sock) {
     stateChange();
 });
 
-
-console.log('Starting Helper script...');
-winspawn('helper.ahk');
+if (process.platform == 'win32')
+{
+  console.log('Starting Helper script...');
+  winspawn('helper.ahk');  
+}
+else
+{
+  console.log('Helper script can only run on Windows machines.');
+}
 
 
 function stateChange () {
