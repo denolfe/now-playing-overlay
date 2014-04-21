@@ -1,0 +1,45 @@
+require 'rake'
+
+Encoding.default_external = Encoding::UTF_8
+NOW_PLAYING = 'public/NowPlaying.txt'
+SONG_ARRAY = ['Cash Cash - Kiss the Sky', 'Monstercat - The Monstercat Podcast - Episode 001']
+
+task :default => [:gen]
+
+desc "generate NowPlaying.txt file"
+task :gen do
+  if File.exist?(NOW_PLAYING)
+    File.open(NOW_PLAYING, "w") {}
+  else
+    FileUtils.touch(NOW_PLAYING)
+  end
+end
+
+desc "simulate pause"
+task :pause do
+  Rake::Task["gen"].execute
+end
+
+desc "delete NowPlaying.txt file"
+task :del do
+  File.delete(NOW_PLAYING) if File.exist?(NOW_PLAYING)
+end
+
+desc "description of default task"
+task :play do
+  Rake::Task["gen"].execute
+  data = 'Cash Cash - Kiss the Sky'.force_encoding('iso-8859-1').encode('utf-8')
+#   data = 'Cash Cash – Kiss the Sky'.force_encoding('iso-8859-1').encode('utf-8')
+  File.open(NOW_PLAYING, "w") do |f|
+    f.write data
+  end
+end
+
+desc "simulate changing song"
+task :next, [:song] do |t, args|
+  puts "Changing song to #{args.song}"
+  data = args.song.force_encoding('iso-8859-1').encode('utf-8')
+  File.open(NOW_PLAYING, "w") do |f|
+      f.write data
+    end
+end
