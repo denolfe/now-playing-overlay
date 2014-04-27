@@ -37,7 +37,8 @@
   }
 
   function startSong (songInfo) {
-    $('#album-art').css('background-image', "url('/img/Cover.png?"+d.getTime()+"')");
+    var imgurl =  "url('/img/Cover.png?"+d.getTime()+"')";
+    $('#album-art').css('background-image',imgurl);
     $("#disc").css({opacity: 0})
     .transition({ x: 150, opacity: 100, rotate: 180}, 2500, 'cubic-bezier(0,0.9,0.3,1)');
     $('#album-overlay').css({opacity: 0, 'left': '8px'});
@@ -62,7 +63,7 @@
   function reset () {
     $('#song-info').css({opacity: 0});
     $('#disc').css({'left': '-100px', opacity: 0});
-    $('#album-art').css({'left': '-100px', '-webkit-filter': 'none'});
+    $('#album-art').css({'left': '-100px', '-webkit-filter': 'none', 'background-image': 'none'});
     $('album-overlay').css({'left': '-100px', opacity: 0});
   }
 
