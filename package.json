@@ -9,7 +9,7 @@
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "spotify-web": "~1.1.1",
+    "spotify-web": "~1.2.0",
     "open": "0.0.5",
     "request": "~2.34.0",
     "win-spawn": "~2.0.0",
