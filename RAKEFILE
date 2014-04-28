@@ -1,7 +1,7 @@
 require 'rake'
 
 Encoding.default_external = Encoding::UTF_8
-NOW_PLAYING = 'NowPlaying.txt'
+NOW_PLAYING = 'public/NowPlaying.txt'
 SONG_ARRAY = ['Cash Cash - Kiss the Sky', 'Monstercat - The Monstercat Podcast - Episode 001']
 
 task :default => [:gen]
