@@ -7,6 +7,7 @@ Local Node.js app designed for serving an html page with album art and animation
 Note: The [spotify-node-web](https://github.com/TooTallNate/node-spotify-web) dependency is not officially supported by Spotify. Therefore, it breaks quite regularly. The following [fix](https://github.com/TooTallNate/node-spotify-web/issues/87) must be implemented into the npm package manually until it is rolled around to the npm package.
 
 Preview of it in action:
+
 [![Spotify Overlay](http://img.youtube.com/vi/3AQ2ZLvIwDw/0.jpg)](https://www.youtube.com/watch?v=3AQ2ZLvIwDw)
 
 ## Dependencies
