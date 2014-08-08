@@ -37,7 +37,7 @@
   }
 
   function startSong (songInfo) {
-    var imgurl =  "url('/img/Cover.png?"+d.getTime()+"')";
+    var imgurl =  "url('Snip_Artwork.jpg?"+d.getTime()+"')";
     $('#album-art').css('background-image',imgurl);
     $("#disc").css({opacity: 0})
     .transition({ x: 150, opacity: 100, rotate: 180}, 2500, 'cubic-bezier(0,0.9,0.3,1)');

@@ -64,7 +64,7 @@ var lastCommand;
 exports.getNowPlaying = function() {
   var out = {};
   var path = require('path');
-  var filePath = path.join(__dirname + '/public/NowPlaying.txt');
+  var filePath = path.join(__dirname + '/public/Snip.txt');
 
   var nowPlaying = fs.readFileSync(filePath, 'utf8').replace(/^\s+|\s+$/g, '');
   console.log('Last Command: ' + lastCommand);
@@ -80,7 +80,7 @@ exports.getNowPlaying = function() {
       out.command = 'nextSong';
     }
     out.nowPlaying = nowPlaying;
-    this.getArt(nowPlaying);
+    // this.getArt(nowPlaying);
   }
   lastCommand = out.command;
   return out;
