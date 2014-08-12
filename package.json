@@ -9,14 +9,16 @@
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "spotify-web": "~1.2.0",
-    "open": "0.0.5",
-    "request": "~2.34.0",
-    "win-spawn": "~2.0.0",
-    "node-watch": "~0.3.4",
-    "express": "~4.0.0",
     "body-parser": "*",
     "ejs": "~1.0.0",
-    "socket.io": "~0.9.16"
+    "express": "~4.0.0",
+    "node-watch": "~0.3.4",
+    "open": "0.0.5",
+    "request": "~2.34.0",
+    "socket.io": "~0.9.16",
+    "spotify-web": "~1.2.0",
+    "superagent": "^0.18.2",
+    "win-spawn": "~2.0.0",
+    "xml2js": "^0.4.4"
   }
 }

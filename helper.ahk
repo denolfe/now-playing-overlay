@@ -18,10 +18,16 @@ CheckSong:
 	StringTrimLeft, playing, playing, 10
 	if (was_playing != playing)
 	{
-		;Traytip, Song Changed, % playing, 1
+		if (playing == "")
+		{
+			Menu, Tray, Tip, No Song Playing
+			HttpQueryInfo("http://localhost:1337/np/nosong")
+		}
+		else
+		{
+			Menu, Tray, Tip, % playing
+			HttpQueryInfo("http://localhost:1337/np/" playing)
+		}
 		was_playing := playing
-		playing_formatted := playing
-		FileDelete, % file
-		FileAppend, % playing_formatted, % file, UTF-8
 	}
 	Return

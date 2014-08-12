@@ -72,7 +72,16 @@
   var dashHostname = 'http://' + document.location.hostname + ':1337';
   var dashSocket = io.connect(dashHostname);
 
+  dashSocket.on('connect', function (data) {
+      dashSocket.emit('storeClientInfo', { customId:"NowPlaying" });
+      console.log('socket.io connected');
+  });
+
   dashSocket.on('message', function (data) {
+
+    console.log(data.command);
+    console.log(data.info.nowPlaying);
+
     switch (data.command) {
       case 'pauseSong':
         endSong();

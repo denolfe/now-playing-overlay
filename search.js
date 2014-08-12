@@ -61,14 +61,11 @@ exports.getArt = function(query) {
 }
 
 var lastCommand;
-exports.getNowPlaying = function() {
+exports.getNowPlaying = function (currentSong) {
   var out = {};
-  var path = require('path');
-  var filePath = path.join(__dirname + '/public/NowPlaying.txt');
-
-  var nowPlaying = fs.readFileSync(filePath, 'utf8').replace(/^\s+|\s+$/g, '');
+  var nowPlaying = currentSong;
   console.log('Last Command: ' + lastCommand);
-  if (nowPlaying == '') {
+  if (nowPlaying == 'nosong') {
     console.log('Music is paused.');
     out.command = 'pauseSong';
     out.nowPlaying = '';
@@ -100,7 +97,7 @@ var download = function(uri, filename, callback) {
   });
 };
 
-
+// Unused for now
 function getInfo() {
   var LastfmAPI = require('lastfmAPI');
 
