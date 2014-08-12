@@ -2,11 +2,15 @@
 
 ![Image](img/preview.gif)
 
-A music overlay for streaming on [Twitch.tv](http://www.twitch.tv/). It includes song information, album art, and flashy jquery animations when a song is started or changed.
+A music overlay for streaming on [Twitch.tv](http://www.twitch.tv/). It includes song information, album art, and flashy jQuery animations when a song is started or changed.
 
 It is a Node.js app which serves an html page to be used in [Open Broadcaster Software](https://obsproject.com/) with the [CLR Browser Plugin](https://obsproject.com/forum/resources/clr-browser-source-plugin.22/).
 
-**Note**: The [spotify-node-web](https://github.com/TooTallNate/node-spotify-web) dependency is not officially supported by Spotify. Therefore, it breaks quite regularly. The following [fix](https://github.com/TooTallNate/node-spotify-web/issues/87) must be implemented into the npm package manually until it is rolled around to the npm package.
+**Note**: The [spotify-node-web](https://github.com/TooTallNate/node-spotify-web) dependency is not officially supported by Spotify. Therefore, it breaks quite regularly. 
+
+~~The following [fix](https://github.com/TooTallNate/node-spotify-web/issues/87) must be implemented into the npm package manually until it is rolled around to the npm package.~~
+
+The lib is currently unable to pull album art successfully until [this issue](https://github.com/TooTallNate/node-spotify-web/issues/87) is resolved.  It pulls in a generic album cover when no artwork is retrieved from the API.
 
 Preview of it in action:
 
